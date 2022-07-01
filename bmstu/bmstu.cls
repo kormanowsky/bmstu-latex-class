@@ -15,16 +15,12 @@
 %
 % This work consists of all files listed in manifest.txt.
 
-\NeedsTeXFormat{LaTeX2e}
-
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
-
-\newif\ifminimal@nonminimal
-\DeclareOption{minimal}{\minimal@minimal}
-
-\ExecuteOptions{minimal}
-
-\ProcessOptions\relax
+\newif\if@notnminimal
+\@notminimaltrue
+\DeclareOption{minimal}{\@notminimalfalse}
+\ProcessOptions
 
 % Установка базового класса
 \LoadClass[14pt]{extreport}
@@ -99,7 +95,7 @@
 \RequirePackage{amssymb}
 
 % Настройка библиографии
-\ifminimal@nonminimal
+\if@notnminimal
 \RequirePackage[
 	style=gost-numeric,
 	language=auto,
@@ -116,12 +112,12 @@
 \RequirePackage{xifthen}
 
 \RequirePackage{bmstu-title}
-\ifminimal@nonminimal
+\if@notnminimal
 \RequirePackage{bmstu-essay}
 \fi
 \RequirePackage{bmstu-toc}
 \RequirePackage{bmstu-defabbr}
-\ifminimal@nonminimal
+\if@notnminimal
 \RequirePackage{bmstu-biblio}
 \fi
 \RequirePackage{bmstu-appendix}
