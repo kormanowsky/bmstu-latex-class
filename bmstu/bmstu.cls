@@ -23,7 +23,7 @@
 \ProcessOptions
 
 % Установка базового класса
-\LoadClass[14pt]{extreport}
+\LoadClass[14pt]{extarticle}
 
 % Настройка кодировки и языков
 \RequirePackage[T1,T2A]{fontenc}
