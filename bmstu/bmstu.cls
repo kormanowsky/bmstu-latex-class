@@ -17,7 +17,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
-\newif\if@notnminimal
+\newif\if@notminimal
 \@notminimaltrue
 \DeclareOption{minimal}{\@notminimalfalse}
 \ProcessOptions
@@ -33,10 +33,10 @@
 
 % Настройка полей
 \RequirePackage[
-	left=30mm,
-	right=10mm, % Является требованием МГТУ, не соответствует ГОСТ 7.32-2017
-	top=20mm,
-	bottom=20mm,
+left=30mm,
+right=10mm, % Является требованием МГТУ, не соответствует ГОСТ 7.32-2017
+top=20mm,
+bottom=20mm,
 ]{geometry}
 
 % Настройка переносов
@@ -80,9 +80,9 @@
 
 % Настройка подписей
 \RequirePackage[
-	labelsep=endash,
-	figurename=Рисунок,
-	singlelinecheck=false,
+labelsep=endash,
+figurename=Рисунок,
+singlelinecheck=false,
 ]{caption}
 \captionsetup[figure]{justification=centering}
 
@@ -95,12 +95,12 @@
 \RequirePackage{amssymb}
 
 % Настройка библиографии
-\if@notnminimal
+\if@notminimal
 \RequirePackage[
-	style=gost-numeric,
-	language=auto,
-	autolang=other,
-	sorting=none,
+style=gost-numeric,
+language=auto,
+autolang=other,
+sorting=none,
 ]{biblatex}
 \RequirePackage{csquotes}
 \DeclareFieldFormat{urldate}{(дата обращения:\addspace\thefield{urlday}\adddot \thefield{urlmonth}\adddot\thefield{urlyear})}
@@ -112,12 +112,12 @@
 \RequirePackage{xifthen}
 
 \RequirePackage{bmstu-title}
-\if@notnminimal
+\if@notminimal
 \RequirePackage{bmstu-essay}
 \fi
 \RequirePackage{bmstu-toc}
 \RequirePackage{bmstu-defabbr}
-\if@notnminimal
+\if@notminimal
 \RequirePackage{bmstu-biblio}
 \fi
 \RequirePackage{bmstu-appendix}
