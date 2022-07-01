@@ -19,6 +19,13 @@
 
 \ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
 
+\newif\ifminimal@nonminimal
+\DeclareOption{minimal}{\minimal@minimal}
+
+\ExecuteOptions{minimal}
+
+\ProcessOptions\relax
+
 % Установка базового класса
 \LoadClass[14pt]{extreport}
 
@@ -92,6 +99,7 @@
 \RequirePackage{amssymb}
 
 % Настройка библиографии
+\ifminimal@nonminimal
 \RequirePackage[
 	style=gost-numeric,
 	language=auto,
@@ -100,7 +108,7 @@
 ]{biblatex}
 \RequirePackage{csquotes}
 \DeclareFieldFormat{urldate}{(дата обращения:\addspace\thefield{urlday}\adddot \thefield{urlmonth}\adddot\thefield{urlyear})}
-
+\fi
 % Подключение пакета гиперссылок
 \RequirePackage[unicode,hidelinks]{hyperref}
 
@@ -108,8 +116,12 @@
 \RequirePackage{xifthen}
 
 \RequirePackage{bmstu-title}
+\ifminimal@nonminimal
 \RequirePackage{bmstu-essay}
+\fi
 \RequirePackage{bmstu-toc}
 \RequirePackage{bmstu-defabbr}
+\ifminimal@nonminimal
 \RequirePackage{bmstu-biblio}
+\fi
 \RequirePackage{bmstu-appendix}
